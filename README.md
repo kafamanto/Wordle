@@ -1,0 +1,1 @@
+Assist solving Wordle puzzles
