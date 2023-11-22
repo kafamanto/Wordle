@@ -1,0 +1,17 @@
+file:
+  guesses: Wordle/wordle.txt  # list of acceptible wordle guesses
+result:
+  correct_letter: y           # correct letter in correct position
+  wrong_letter:   n           # letter not in word
+  wrong_pos:      .           # correct letter but in wrong position
+word:
+  length: 5                   # all wordle answers are 5 letter long
+validate:
+  guess:
+    regex: ^[A-Z]{5}$         # regex to match valid guess
+    description: "- guess should be 5 letters"
+  result:
+    regex: ^[YN\.]{5}$        # regex to match valid result
+    description: "- result should be 5 chars long and consist only of 'y', 'n', and '.'"
+display:
+  max_possible: 50            # max number of possible words to show during update
