@@ -27,7 +27,7 @@ def reject_regexes(words, regexes):
 def select_letters(words, letters):
     if len(letters) == 0:
         return words
-    filtered_words = [word for word in words if any(letter in word for letter in letters)]
+    filtered_words = [word for word in words if all(letter in word for letter in letters)]
     return filtered_words
 
 def reject_letters(words, letters):
