@@ -3,7 +3,8 @@ import re
 from filter import select_regexes, reject_regexes, select_letters, reject_letters
 
 class Wordle:
-    def __init__(self, config_file='Wordle/config.yml', debug=False):
+    def __init__(self, debug=False, config_file='Wordle/config.yml'):
+        print(f"config_file: {config_file}") #@
         # read config file
         with open(config_file, 'r') as f:
             config = yaml.safe_load(f)
@@ -102,6 +103,7 @@ class Wordle:
             # right letter right place, save letter/pos
             if result_char == correct_letter: 
                 self.store_correct_regex(guess_char, i)
+                self.needed_letters.append(guess_char)
 
             # right letter wrong place, block pos, save letter
             if result_char == wrong_pos: 

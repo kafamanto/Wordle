@@ -1,6 +1,6 @@
 import re
 
-def select_regexes(words, regexes):
+def select_regexes(words, regexes, debug=False):
     '''
     Return words in list that match regex list
     '''
@@ -12,7 +12,7 @@ def select_regexes(words, regexes):
             filtered_words.append(word)
     return filtered_words
 
-def reject_regexes(words, regexes):
+def reject_regexes(words, regexes, debug=False):
     '''
     Return strings in string list that don't match regex list
     '''
@@ -24,38 +24,16 @@ def reject_regexes(words, regexes):
             filtered_words.append(word)
     return filtered_words
 
-def select_letters(words, letters):
+def select_letters(words, letters, debug=False):
     if len(letters) == 0:
         return words
+    if debug: print('select_letters: ', letters)
     filtered_words = [word for word in words if all(letter in word for letter in letters)]
     return filtered_words
 
-def reject_letters(words, letters):
+def reject_letters(words, letters, debug=False):
     if len(letters) == 0:
-        return words    
+        return words  
+    if debug: print('select_letters: ', letters)  
     filtered_words = [word for word in words if not any(letter in word for letter in letters)]
     return filtered_words
-
-if __name__ == '__main__':
-    words = ['STERN', 'AUDIO', 'SMITH', 'SIGHT', 'TRADE', 'TARDY']
-    print('word list: ', words, '\n')
-
-    # select words by regex list
-    regexes = ['T....']
-    print('regex: ', regexes)
-    print('selected: ', select_regexes(words, regexes), '\n')
-
-    # reject words by regex list
-    regexes = ['.T...']
-    print('regex: ', regexes)
-    print('rejected: ', reject_regexes(words, regexes), '\n')
-
-    # select words by letter list
-    letters = ['T']
-    print('letters: ', letters)
-    print('selected: ', select_letters(words, letters), '\n')
-
-    # reject words by letter list
-    letters = ['T']
-    print('letters: ', letters)
-    print('rejected: ', reject_letters(words, letters), '\n')

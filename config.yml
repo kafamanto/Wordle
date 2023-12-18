@@ -1,5 +1,6 @@
 file:
   guesses: Wordle/wordle.txt  # list of acceptible wordle guesses
+  #@ guesses: wordle.txt  # list of acceptible wordle guesses
 result:
   correct_letter: y           # correct letter in correct position
   wrong_letter:   n           # letter not in word
