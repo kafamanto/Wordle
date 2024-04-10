@@ -15,4 +15,4 @@ validate:
     regex: ^[YN\.]{5}$        # regex to match valid result
     description: "- result should be 5 chars long and consist only of 'y', 'n', and '.'"
 display:
-  max_possible: 50            # max number of possible words to show during update
+  max_possible: 80            # max number of possible words to show during update

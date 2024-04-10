@@ -16,7 +16,7 @@ class Wordle:
         
         # set members
         self.debug              = debug
-        self.is_running         = True
+        self._is_running        = True
         self.config             = config
         self.possible_words     = all_words
         self.full_word_count    = len(all_words)
@@ -28,6 +28,9 @@ class Wordle:
         # show instructions
         self.show_instructions()
 
+    def is_running(self):
+        return self._is_running
+    
     def show_instructions(self):
         result_codes = self.config['result'].keys()
         print('This helps solve Wordle.  Input is case-insensitive.  Feedback chars:')
@@ -41,7 +44,7 @@ class Wordle:
         poss_ct  = len(self.possible_words)
         block_ct = self.full_word_count - poss_ct
         if poss_ct == 1:
-           self.is_running = False
+           self._is_running = False
         print(f'Blocked count: {block_ct:,}, remaining count: {poss_ct:,}', end='')
         if poss_ct <= max_show:
             print(f', remaining words: {self.possible_words}', end='')

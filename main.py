@@ -7,7 +7,7 @@ debug       = False
 game        = Wordle(debug)
 game.show_status()
 
-while(game.is_running):
+while(game.is_running()):
     guess = game.get_guess()
     if guess == '': 
         break
