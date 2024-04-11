@@ -3,8 +3,8 @@ Assist solving Wordle puzzles
 '''
 from wordle import Wordle
 
-debug       = False
-game        = Wordle(debug)
+debug = False
+game  = Wordle(debug)
 game.show_status()
 
 while(game.is_running()):
